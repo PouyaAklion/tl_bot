@@ -2,7 +2,7 @@
   "name": "stock_market_telegram_bot",
   "version": "1.0.0",
   "description": "Iran Stock market telegram bot",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
