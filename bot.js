@@ -29,7 +29,7 @@ async function registerUser(user) {
   let newUser = new User({
     id: user.id,
     username: user.username || null,
-    fullname:`${user.first_name || null} ${user.last_name || null}`
+    fullname:`${user.first_name || null} ${user.last_name || ''}`
   })
   await newUser.save().catch(e => {
     return false
