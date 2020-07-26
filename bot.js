@@ -29,7 +29,7 @@ async function registerUser(user) {
   let newUser = new User({
     id: user.id,
     username: user.username || null,
-    fullname: user.first_name || null + user.last_name || null
+    fullname:`${user.first_name || null} ${user.last_name || null}`
   })
   await newUser.save().catch(e => {
     return false
@@ -50,9 +50,6 @@ function listenWebhooks() {
     res.sendStatus(200);
   });
 }
-
-
-
 
 if (process.env.NODE_ENV === 'production') {
   bot = new TelegramBot(token);
@@ -80,7 +77,7 @@ bot.onText(/\/start/, async (msg, match) => {
 
 bot.on('message', (msg) => {
   if (msg.text === commands.btnFilters) {
-    console.log(msg)
+    // console.log(msg)
   }
 });
 
