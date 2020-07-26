@@ -64,7 +64,7 @@ bot.onText(/\/start/, async (msg, match) => {
     await registerUser(msg.from)
     bot.sendMessage(msg.chat.id, 'خوش آمدید', keyboard)
   } else if (user.requestCount >= 10) {
-    // bot.sendMessage(msg.chat.id, '');
+    bot.sendMessage(msg.chat.id, 'ربات در حال پیاده سازی می باشد. برای ارسال پیشنهاد به @easy_bots پیام بدهید.', keyboard)
   } else {
     bot.sendMessage(msg.chat.id, 'ربات در حال پیاده سازی می باشد. برای ارسال پیشنهاد به @easy_bots پیام بدهید.', keyboard)
     user.requestCount++;
