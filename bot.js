@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express')
 const bodyParser = require('body-parser');
 
-const { User } = require('./User');
+// const { User } = require('./User');
 const env = require('dotenv').config()
 
 
@@ -34,18 +34,19 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 bot.onText(/\/start/, async (msg, match) => {
-  let user =  await checkUser(msg.from.id)
-  if (!user) {
-    await registerUser(msg.from)
-    bot.sendMessage(msg.chat.id, 'welcome', keyboard)
-  } else if (user.requestCount >= 10) {
-    bot.sendMessage(msg.chat.id, 'حساب رایگان شما تمام شده است');
-  } else {
-    bot.sendMessage(msg.chat.id, 'welcome again', keyboard)
-    user.requestCount++;
-    await user.save();
+  // let user =  await checkUser(msg.from.id)
+  // if (!user) {
+  //   await registerUser(msg.from)
+  //   bot.sendMessage(msg.chat.id, 'welcome', keyboard)
+  // } else if (user.requestCount >= 10) {
+  //   bot.sendMessage(msg.chat.id, 'حساب رایگان شما تمام شده است');
+  // } else {
+  //   bot.sendMessage(msg.chat.id, 'welcome again', keyboard)
+  //   user.requestCount++;
+  //   await user.save();
 
-  }
+  // }
+  bot.sendMessage(msg.chat.id, 'welcome', keyboard)
 
 });
 
