@@ -62,11 +62,11 @@ bot.onText(/\/start/, async (msg, match) => {
   let user = await checkUser(msg.from.id)
   if (!user) {
     await registerUser(msg.from)
-    bot.sendMessage(msg.chat.id, 'welcome', keyboard)
+    bot.sendMessage(msg.chat.id, 'خوش آمدید', keyboard)
   } else if (user.requestCount >= 10) {
-    bot.sendMessage(msg.chat.id, 'حساب رایگان شما تمام شده است');
+    // bot.sendMessage(msg.chat.id, '');
   } else {
-    bot.sendMessage(msg.chat.id, 'welcome again', keyboard)
+    bot.sendMessage(msg.chat.id, 'ربات در حال پیاده سازی می باشد. برای ارسال پیشنهاد به @easy_bots پیام بدهید.', keyboard)
     user.requestCount++;
     await user.save();
 
@@ -77,7 +77,7 @@ bot.onText(/\/start/, async (msg, match) => {
 
 bot.on('message', (msg) => {
   if (msg.text === commands.btnFilters) {
-    // console.log(msg)
+    bot.sendMessage(msg.chat.id,'در حال پیاده سازی می باشد. برای ارسال پیشنهاد به @easy_bots پیام بدهید.')
   }
 });
 
